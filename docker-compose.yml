@@ -1,17 +1,18 @@
-version: '3.5'
+version: '3.8'
 
 services:
-  postgres:
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: mysecretpassword
-    ports:
-      - 5432:5432
+#   postgres:
+#     image: postgres:alpine
+#     environment:
+#       POSTGRES_PASSWORD: mysecretpassword
+#     ports:
+#       - 5432:5432
 
-  # urban_fiesta:
-  #   build: .
-  #   container_name: urbaniestaAPI
-  #   restart: on-failure
-  #   ports:
-  #     - 5000:5000
-  #     - 5001:5001
+  urban_fiesta:
+    build: .
+    container_name: urbaniestaAPI
+    restart: on-failure
+    ports:
+      - 5000:80
+    # depends_on:
+    #   - postgres

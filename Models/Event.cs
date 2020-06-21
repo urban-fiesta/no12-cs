@@ -21,7 +21,7 @@ namespace UrbanFiesta.Models
         [Required]
         public float price { get; set; }
         public string tag { get; set; }
-        public string Description { get; set; }
+        public string description { get; set; }
         public int ageLimit { get; set; }
         public string eventPhoto { get; set; }
     }
