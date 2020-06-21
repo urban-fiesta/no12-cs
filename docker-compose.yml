@@ -1,12 +1,19 @@
 version: '3.8'
 
 services:
-#   postgres:
-#     image: postgres:alpine
-#     environment:
-#       POSTGRES_PASSWORD: mysecretpassword
-#     ports:
-#       - 5432:5432
+  postgres:
+    image: postgres:alpine
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_USER: tiago #gostosa
+      POSTGRES_DB: UrbanFiestaDB
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    ports:
+      - 5432:5432
+    networks:
+      - dockerapi-dev
 
   urban_fiesta:
     build: .
@@ -14,5 +21,11 @@ services:
     restart: on-failure
     ports:
       - 5000:80
-    # depends_on:
-    #   - postgres
+    depends_on:
+      - postgres
+    networks:
+      - dockerapi-dev
+
+networks:
+  dockerapi-dev:
+    driver: bridge 
