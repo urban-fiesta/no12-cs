@@ -36,6 +36,17 @@ namespace UrbanFiesta
             services.AddDbContext<UrbanFiestaContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("UrbanFiestaConnection")));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+            #region cors
+            services.AddCors(options =>
+                {
+                    options.AddDefaultPolicy(
+                        builder =>
+                        {
+                            builder.WithOrigins("http://localhost:8080");
+                        });
+                });
+            #endregion
+
              // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
@@ -67,7 +78,7 @@ namespace UrbanFiesta
             });
 
             app.UseRouting();
-
+            app.UseCors();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
