@@ -19,12 +19,11 @@ namespace UrbanFiesta.Data.Repositories
         }
         public async Task<IEnumerable<Event>> GetEvents(Options opts)
         {
-
             return await _context.Events
             .Where(x => (opts.tag == null || x.tag == opts.tag)
-            && (opts.name == null || x.name.Contains(opts.name) )
+            && (opts.name == null || x.name.Contains(opts.name))
+            // && ((opts.iniDate == null && opts.endDate == null) || x.date >= opts.iniDate && x.date <= opts.endDate)
             ).ToListAsync();
-            
         }
 
         public async Task<Event> GetEventById(int id)
@@ -45,7 +44,6 @@ namespace UrbanFiesta.Data.Repositories
         {
             _context.Entry(evt).State = EntityState.Modified;
             _context.SaveChangesAsync();
-            //Nothing Because AutoMapper
         }
 
         public async Task<Event> DeleteEvent(int id)

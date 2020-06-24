@@ -6,7 +6,7 @@ services:
     container_name: postgres
     environment:
       POSTGRES_PASSWORD: mysecretpassword
-      POSTGRES_USER: tiago #gostosa
+      POSTGRES_USER: tiago
       POSTGRES_DB: UrbanFiestaDB
     volumes:
       - ./db:/docker-entrypoint-initdb.d/

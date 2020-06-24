@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using UrbanFiesta.Data;
@@ -9,9 +10,10 @@ using UrbanFiesta.Data;
 namespace UrbanFiesta.Migrations
 {
     [DbContext(typeof(UrbanFiestaContext))]
-    partial class UrbanFiestaContextModelSnapshot : ModelSnapshot
+    [Migration("20200624193559_CreateTicketField")]
+    partial class CreateTicketField
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

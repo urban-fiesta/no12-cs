@@ -45,7 +45,7 @@ namespace UrbanFiesta.Controllers
 
             var evtRdDto = _mapper.Map<EventReadDto>(eventModel);
             // return CreatedAtRoute(nameof(GetEventById), new {Id = evtRdDto.Id}, evtRdDto);
-            return Ok();
+            return Ok(res);
         }
 
         [HttpPut("{id:int}")]

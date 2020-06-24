@@ -33,6 +33,7 @@ namespace UrbanFiesta
         {
             services.AddControllers();
             services.AddScoped<IEventRepo, EventRepo>();
+            services.AddScoped<ITicketRepo, TicketRepo>();
             services.AddDbContext<UrbanFiestaContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("UrbanFiestaConnection")));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
