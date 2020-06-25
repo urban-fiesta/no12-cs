@@ -9,6 +9,8 @@ namespace UrbanFiesta.AutoMapper.DTOs.Ticket
         [Required]
         public float price { get; set; }
         [Required]
-        public DateTime dateTime { get; set; }
+        public DateTime date { get; set; }
+        [Required]
+        public DateTime time { get; set; }
     }
 }
